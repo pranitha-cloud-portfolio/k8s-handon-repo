@@ -1,0 +1,51 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: website1-content
+  namespace: demo-web
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head><title>Website 1</title></head>
+    <body style="background-color:#dbeafe;font-family:Arial;text-align:center;padding:50px">
+      <h1>Welcome to Website 1</h1>
+      <h2>Application: APP1</h2>
+      <p>Served by website1 Deployment and website1-svc.</p>
+    </body>
+    </html>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: website2-content
+  namespace: demo-web
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head><title>Website 2</title></head>
+    <body style="background-color:#dcfce7;font-family:Arial;text-align:center;padding:50px">
+      <h1>Welcome to Website 2</h1>
+      <h2>Application: APP2</h2>
+      <p>Served by website2 Deployment and website2-svc.</p>
+    </body>
+    </html>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: website3-content
+  namespace: demo-web
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head><title>Website 3</title></head>
+    <body style="background-color:#fce7f3;font-family:Arial;text-align:center;padding:50px">
+      <h1>Welcome to Website 3</h1>
+      <h2>Application: APP3</h2>
+      <p>Served by website3 Deployment and website3-svc.</p>
+    </body>
+    </html>

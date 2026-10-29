@@ -1,0 +1,42 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: website1-svc
+  namespace: demo-web
+spec:
+  type: ClusterIP
+  selector:
+    app: website1
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: website2-svc
+  namespace: demo-web
+spec:
+  type: ClusterIP
+  selector:
+    app: website2
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: website3-svc
+  namespace: demo-web
+spec:
+  type: ClusterIP
+  selector:
+    app: website3
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

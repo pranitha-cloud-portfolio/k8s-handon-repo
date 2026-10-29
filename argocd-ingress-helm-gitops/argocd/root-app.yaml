@@ -1,0 +1,21 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-handon-root
+  namespace: argocdtask
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pranitha-cloud-portfolio/k8s-handon-repo.git
+    targetRevision: main
+    path: argocd-ingress-helm-gitops/argocd/apps
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocdtask
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

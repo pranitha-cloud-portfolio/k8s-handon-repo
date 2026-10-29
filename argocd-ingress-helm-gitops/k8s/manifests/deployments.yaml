@@ -1,0 +1,93 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website1
+  namespace: demo-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website1
+  template:
+    metadata:
+      labels:
+        app: website1
+    spec:
+      nodeSelector:
+        workload: worker
+      containers:
+        - name: website
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: website-content
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: website-content
+          configMap:
+            name: website1-content
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website2
+  namespace: demo-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website2
+  template:
+    metadata:
+      labels:
+        app: website2
+    spec:
+      nodeSelector:
+        workload: worker
+      containers:
+        - name: website
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: website-content
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: website-content
+          configMap:
+            name: website2-content
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website3
+  namespace: demo-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website3
+  template:
+    metadata:
+      labels:
+        app: website3
+    spec:
+      nodeSelector:
+        workload: worker
+      containers:
+        - name: website
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: website-content
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: website-content
+          configMap:
+            name: website3-content
