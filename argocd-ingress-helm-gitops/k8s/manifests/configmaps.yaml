@@ -27,7 +27,7 @@ data:
     <html>
     <head><title>Website 2</title></head>
     <body style="background-color:#dcfce7;font-family:Arial;text-align:center;padding:50px">
-      <h1>Welcome to Website 2</h1>
+      <h1>Testing Github changes reflecting correctly in ArgoCD </h1>
       <h2>Application: APP2</h2>
       <p>Served by website2 Deployment and website2-svc.</p>
     </body>
